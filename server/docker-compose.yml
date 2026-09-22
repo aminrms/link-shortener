@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17
+    container_name: link-shortener-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: link_shortener
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - link_shortener_data:/var/lib/postgresql/data
+
+volumes:
+  link_shortener_data:
